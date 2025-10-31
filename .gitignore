@@ -4,9 +4,11 @@
 *.dll
 *.so
 *.dylib
+
+# Compiled binaries (but not source directories)
+/cli/backend-im
+/mock-api/mock-api
 backend-im
-cli/backend-im
-mock-api/mock-api
 
 # Test binary, built with `go test -c`
 *.test
