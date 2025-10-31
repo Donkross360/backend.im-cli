@@ -1,0 +1,72 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+backend-im
+cli/backend-im
+mock-api/mock-api
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Dependency directories
+vendor/
+
+# Go workspace file
+go.work
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment variables
+.env
+.env.local
+
+# Build artifacts
+dist/
+build/
+bin/
+
+# Test outputs and temporary directories
+test-output/
+test-project/
+*.tmp
+tmp/
+
+# Docker volumes and data
+docker-data/
+*.log
+
+# Local configuration (user-specific)
+.cli-config/
+
+# Backend.im CLI config (contains tokens - should not be committed)
+# Note: ~/.backend-im/ is in user's home directory, but if it exists in repo:
+.backend-im/
+*.token
+token.json
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Generated files
+*.generated.go
+
+# Coverage reports
+coverage.html
+coverage.txt
+
+# Local development files
+local/
+.local/

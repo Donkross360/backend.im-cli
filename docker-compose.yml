@@ -1,0 +1,35 @@
+services:
+  mock-api:
+    build:
+      context: ./mock-api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    container_name: backend-im-mock-api
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/api/auth/verify"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  cli:
+    build:
+      context: ./cli
+      dockerfile: Dockerfile
+    volumes:
+      - ./cli:/app
+      - cli-config:/root/.backend-im
+      - cli-output:/tmp/projects
+    environment:
+      - BACKEND_IM_API_URL=http://mock-api:8080
+    depends_on:
+      - mock-api
+    container_name: backend-im-cli
+    entrypoint: ["./backend-im"]
+    profiles:
+      - cli
+
+volumes:
+  cli-config:
+  cli-output:
